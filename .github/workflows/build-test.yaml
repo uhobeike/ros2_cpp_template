@@ -28,6 +28,10 @@ jobs:
       - name: Apt update
         run: |
           sudo apt update -y
+      
+      - name: Apt update
+        run: |
+          sudo apt install -y ros-humble-ament-cpplint
 
       - name: Build Test
         run: |
