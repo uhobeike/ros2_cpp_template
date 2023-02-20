@@ -29,10 +29,6 @@ jobs:
         run: |
           sudo apt update -y
       
-      - name: Apt update
-        run: |
-          sudo apt install -y ros-humble-ament-cpplint
-
       - name: Build Test
         run: |
           mkdir ../catkin_ws/src -p
@@ -46,7 +42,9 @@ jobs:
       
       - name : Ament Cpplint
         run: |
+          source /opt/ros/humble/setup.bash
           ament_cpplint src/ include/
+        shell: bash
       
       # - name : Colcon Test
       #   run: |
