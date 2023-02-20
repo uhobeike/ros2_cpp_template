@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: Apache-2.0
 
 #ifndef ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
 #define ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
