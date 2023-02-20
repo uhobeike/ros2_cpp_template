@@ -1,0 +1,4 @@
+/**:
+  ros__parameters:
+    printf_string: "ROS 3のテンプレートも欲しい："
+    printf_hz: 10.0  #double
