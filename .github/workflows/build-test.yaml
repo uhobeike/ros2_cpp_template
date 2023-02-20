@@ -43,3 +43,7 @@ jobs:
       - name : Ament Cpplint
         run: |
           ament_cpplint src/ include/
+      
+      # - name : Colcon Test
+      #   run: |
+      #     colcon test-result --verbose
