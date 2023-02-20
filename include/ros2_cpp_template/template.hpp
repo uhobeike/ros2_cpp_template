@@ -1,5 +1,10 @@
-#ifndef ROS2CPPTEMPLATE__TEMPLATE_HPP_
-#define ROS2CPPTEMPLATE__TEMPLATE_HPP_
+// SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
+// SPDX-License-Identifier: GPL-3.0
+
+#ifndef ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
+#define ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
+
+#include <string>
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
@@ -30,4 +35,4 @@ private:
 
 }  // namespace Ros2CppTemplate
 
-#endif  // COMPOSITION__TALKER_COMPONENT_HPP_
+#endif  // ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
