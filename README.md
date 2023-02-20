@@ -1,4 +1,4 @@
-# ros2_cpp_template
+# ros2_cpp_template[![build-test](https://github.com/uhobeike/ros2_cpp_template/actions/workflows/build-test.yaml/badge.svg)](https://github.com/uhobeike/ros2_cpp_template/actions/workflows/build-test.yaml)
 
 ## Overview
 ROS 2のC++パッケージのテンプレートです。

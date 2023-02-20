@@ -39,3 +39,7 @@ jobs:
           source /opt/ros/humble/setup.bash
           colcon  build --symlink-install
         shell: bash
+      
+      - name : Ament Cpplint
+        run: |
+          ament_cpplint src/ include/
