@@ -7,8 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, GroupAction
-from launch_ros.actions import LoadComposableNodes, Node
-from launch_ros.descriptions import ComposableNode
+from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
 from nav2_common.launch import RewrittenYaml
 
