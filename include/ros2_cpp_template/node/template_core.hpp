@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
 // SPDX-License-Identifier: Apache-2.0
 
-#ifndef ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
-#define ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
+#ifndef ROS2_CPP_TEMPLATE__NODE__TEMPLATE_CORE_HPP_
+#define ROS2_CPP_TEMPLATE__NODE__TEMPLATE_CORE_HPP_
 
 #include <string>
 
@@ -12,10 +12,10 @@
 namespace Ros2CppTemplate
 {
 
-class Template : public rclcpp::Node
+class TemplateNode : public rclcpp::Node
 {
 public:
-  explicit Template(const rclcpp::NodeOptions & options);
+  TemplateNode();
 
 protected:
   void initPublisher();
@@ -35,4 +35,4 @@ private:
 
 }  // namespace Ros2CppTemplate
 
-#endif  // ROS2_CPP_TEMPLATE__TEMPLATE_HPP_
+#endif  // ROS2_CPP_TEMPLATE__NODE__TEMPLATE_CORE_HPP_

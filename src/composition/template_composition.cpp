@@ -9,14 +9,14 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-#include "ros2_cpp_template/template.hpp"
+#include "ros2_cpp_template/composition/template_composition.hpp"
 
 using namespace std::chrono_literals;
 
 namespace Ros2CppTemplate
 {
 
-Template::Template(const rclcpp::NodeOptions & options)
+TemplateComposition::TemplateComposition(const rclcpp::NodeOptions & options)
 : Node("template", options), count_(0)
 {
   setParam();
@@ -25,27 +25,30 @@ Template::Template(const rclcpp::NodeOptions & options)
   initTimer();
 }
 
-void Template::setParam()
+void TemplateComposition::setParam()
 {
   declare_parameter("printf_string", "これは、ROS 2のシンプルなテンプレート（多分）: ");
   declare_parameter("printf_hz", 1.0);
 }
 
-void Template::getParam()
+void TemplateComposition::getParam()
 {
   printf_string_ = get_parameter("printf_string").as_string();
   int printf_hz = 1000 / get_parameter("printf_hz").as_double();
   printf_ms_ = std::chrono::milliseconds{printf_hz};
 }
 
-void Template::initPublisher() {pub_ = create_publisher<std_msgs::msg::String>("chatter", 10);}
-
-void Template::initTimer()
+void TemplateComposition::initPublisher()
 {
-  timer_ = create_wall_timer(printf_ms_, std::bind(&Template::on_timer, this));
+  pub_ = create_publisher<std_msgs::msg::String>("chatter", 10);
 }
 
-void Template::on_timer()
+void TemplateComposition::initTimer()
+{
+  timer_ = create_wall_timer(printf_ms_, std::bind(&TemplateComposition::on_timer, this));
+}
+
+void TemplateComposition::on_timer()
 {
   // ↓std_msgs::msg::String msg;
   auto msg = std::make_unique<std_msgs::msg::String>();
@@ -58,4 +61,4 @@ void Template::on_timer()
 
 #include "rclcpp_components/register_node_macro.hpp"
 
-RCLCPP_COMPONENTS_REGISTER_NODE(Ros2CppTemplate::Template)
+RCLCPP_COMPONENTS_REGISTER_NODE(Ros2CppTemplate::TemplateComposition)

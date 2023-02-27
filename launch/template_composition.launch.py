@@ -48,7 +48,7 @@ def generate_launch_description():
                 composable_node_descriptions=[
                     ComposableNode(
                         package='ros2_cpp_template',
-                        plugin='Ros2CppTemplate::Template',
+                        plugin='Ros2CppTemplate::TemplateComposition',
                         name='ros2_cpp_template',
                         parameters=[configured_params]),
                 ],
