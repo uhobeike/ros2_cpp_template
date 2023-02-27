@@ -62,8 +62,9 @@ void TemplateComposition::on_timer()
   static std::chrono::milliseconds time_memo = 0ms;
   time_memo = printf_ms_;
   getParam();
-  if(time_memo != printf_ms_)
+  if (time_memo != printf_ms_) {
     timer_ = create_wall_timer(printf_ms_, std::bind(&TemplateComposition::on_timer, this));
+  }
 }
 
 }  // namespace Ros2CppTemplate

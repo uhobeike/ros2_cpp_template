@@ -41,7 +41,10 @@ void TemplateNode::getParam()
   printf_ms_ = std::chrono::milliseconds{printf_hz};
 }
 
-void TemplateNode::initPublisher() {pub_ = create_publisher<std_msgs::msg::String>("chatter_node", 10);}
+void TemplateNode::initPublisher()
+{
+  pub_ = create_publisher<std_msgs::msg::String>("chatter_node", 10);
+}
 
 void TemplateNode::initTimer()
 {
@@ -59,8 +62,9 @@ void TemplateNode::on_timer()
   static std::chrono::milliseconds time_memo = 0ms;
   time_memo = printf_ms_;
   getParam();
-  if(time_memo != printf_ms_)
+  if (time_memo != printf_ms_) {
     timer_ = create_wall_timer(printf_ms_, std::bind(&TemplateNode::on_timer, this));
+  }
 }
 
 }  // namespace Ros2CppTemplate
