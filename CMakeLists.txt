@@ -11,6 +11,7 @@ ament_auto_find_build_dependencies()
 
 include_directories(include)
 
+# template_composition
 ament_auto_add_library(template_composition SHARED
   src/composition/template_composition.cpp
 )
@@ -22,12 +23,21 @@ rclcpp_components_register_node(template_composition
   EXECUTABLE ${PROJECT_NAME}
 )
 
+# template_node
 ament_auto_add_executable(template_node
   src/node/template_core.cpp
   src/node/template_node.cpp
 )
 
 target_link_libraries(template_node)
+
+# template_executor
+ament_auto_add_executable(template_executor
+  src/node/template_core.cpp
+  src/executor/template_executor.cpp
+)
+
+target_link_libraries(template_executor)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

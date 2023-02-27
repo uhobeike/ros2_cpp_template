@@ -32,9 +32,9 @@ def generate_launch_description():
 
     launch_node = GroupAction([
         Node(
-            name='ros2_cpp_template_node',
+            name='ros2_cpp_template_executor',
             package='ros2_cpp_template',
-            executable='template_node',
+            executable='template_executor',
             parameters=[configured_params],
             output='screen')
     ])

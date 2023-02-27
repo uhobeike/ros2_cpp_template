@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
 // SPDX-License-Identifier: Apache-2.0
 
-#ifndef ROS2_CPP_TEMPLATE__COMPOSITION__TEMPLATE_COMPOSITION_HPP_
-#define ROS2_CPP_TEMPLATE__COMPOSITION__TEMPLATE_COMPOSITION_HPP_
+#ifndef ROS2_CPP_TEMPLATE__EXECUTOR__TEMPLATE_CORE_HPP_
+#define ROS2_CPP_TEMPLATE__EXECUTOR__TEMPLATE_CORE_HPP_
 
 #include <string>
 
@@ -12,10 +12,14 @@
 namespace Ros2CppTemplate
 {
 
-class TemplateComposition : public rclcpp::Node
+class TemplateNode : public rclcpp::Node
 {
 public:
-  explicit TemplateComposition(const rclcpp::NodeOptions & options);
+  TemplateNode();
+
+  std::string namespace_;
+  std::string printf_string_;
+  std::chrono::milliseconds printf_ms_;
 
 protected:
   void initPublisher();
@@ -28,12 +32,8 @@ private:
   size_t count_;
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
   rclcpp::TimerBase::SharedPtr timer_;
-
-  std::string namespace_;
-  std::string printf_string_;
-  std::chrono::milliseconds printf_ms_;
 };
 
 }  // namespace Ros2CppTemplate
 
-#endif  // ROS2_CPP_TEMPLATE__COMPOSITION__TEMPLATE_COMPOSITION_HPP_
+#endif  // ROS2_CPP_TEMPLATE__EXECUTOR__TEMPLATE_CORE_HPP_
