@@ -29,6 +29,7 @@ private:
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
   rclcpp::TimerBase::SharedPtr timer_;
 
+  std::string namespace_;
   std::string printf_string_;
   std::chrono::milliseconds printf_ms_;
 };
