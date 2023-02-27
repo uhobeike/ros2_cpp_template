@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
-// SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2023 Tatsuhiro Ikebe <beike315@icloud.com>
+# SPDX-License-Identifier: Apache-2.0
 
 import os
 
@@ -48,7 +48,7 @@ def generate_launch_description():
                 composable_node_descriptions=[
                     ComposableNode(
                         package='ros2_cpp_template',
-                        plugin='Ros2CppTemplate::Template',
+                        plugin='Ros2CppTemplate::TemplateComposition',
                         name='ros2_cpp_template',
                         parameters=[configured_params]),
                 ],
