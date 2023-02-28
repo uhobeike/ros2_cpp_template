@@ -6,37 +6,21 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, GroupAction
+from launch.actions import GroupAction
 from launch_ros.actions import LoadComposableNodes, Node
 from launch_ros.descriptions import ComposableNode
-from launch.substitutions import LaunchConfiguration
-from nav2_common.launch import RewrittenYaml
 
 
 def generate_launch_description():
     ros2_cpp_template_dir = get_package_share_directory('ros2_cpp_template')
-    config_dir = os.path.join(ros2_cpp_template_dir, 'config')
-
-    params_file = LaunchConfiguration('params_file')
-
-    declare_params_file_cmd = DeclareLaunchArgument(
-        'params_file',
-        default_value=os.path.join(
-            config_dir, 'template.param.yaml'),
-        description='Param')
-
-    configured_params = RewrittenYaml(
-        source_file=params_file,
-        root_key="",
-        param_rewrites={},
-        convert_types=True)
+    params_file = os.path.join(ros2_cpp_template_dir, 'config', 'template.param.yaml')
 
     launch_component = GroupAction([
         Node(
             name='ros2_cpp_template_component',
             package='rclcpp_components',
             executable='component_container_isolated',
-            parameters=[configured_params],
+            parameters=[params_file],
             arguments=['--ros-args'],
             output='screen')
     ])
@@ -50,14 +34,13 @@ def generate_launch_description():
                         package='ros2_cpp_template',
                         plugin='Ros2CppTemplate::TemplateComposition',
                         name='ros2_cpp_template',
-                        parameters=[configured_params]),
+                        parameters=[params_file]),
                 ],
             )
         ]
     )
 
     ld = LaunchDescription()
-    ld.add_action(declare_params_file_cmd)
     ld.add_action(load_composable_nodes)
     ld.add_action(launch_component)
 
