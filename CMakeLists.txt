@@ -29,15 +29,11 @@ ament_auto_add_executable(template_node
   src/node/template_node.cpp
 )
 
-target_link_libraries(template_node)
-
 # template_executor
 ament_auto_add_executable(template_executor
   src/node/template_core.cpp
   src/executor/template_executor.cpp
 )
-
-target_link_libraries(template_executor)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
