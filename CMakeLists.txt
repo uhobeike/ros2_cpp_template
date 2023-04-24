@@ -9,14 +9,10 @@ find_package(ament_cmake_auto REQUIRED)
 
 ament_auto_find_build_dependencies()
 
-include_directories(include)
-
 # template_composition
 ament_auto_add_library(template_composition SHARED
   src/composition/template_composition.cpp
 )
-
-target_link_libraries(template_composition)
 
 rclcpp_components_register_node(template_composition
   PLUGIN "Ros2CppTemplate::TemplateComposition"
